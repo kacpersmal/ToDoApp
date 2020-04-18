@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ToDoListContainer from './components/ToDoListContainer';
 import axios from 'axios';
-import ToDoList from './components/ToDoList';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -23,9 +21,7 @@ export default class App extends Component {
     }
 
     renderToDoLists() {
-        return (
-                <ToDoListContainer id="list-container" data={this.state.ToDoData} />
-            );
+       
     }
 
     render() {
