@@ -1,0 +1,47 @@
+﻿/**************HolderList******************/
+
+.flex-container {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+/**************Holder******************/
+
+.Holder {
+    margin: 30px auto;
+    margin-right: 30px;
+    margin-left: 30px;
+    min-height: 80%;
+    min-width: 20%;
+    border: 1px dashed red;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 667px) {
+    .Holder {
+        min-height: 80%;
+        min-width: 80%;
+    }
+}
+ 
+/*******Blank Holder********/
+
+.Blank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddButton {
+    width: 200px;
+    height: 200px;
+    text-decoration: none;
+    border: 2px dashed black;
+
+    border-radius: 50%;
+}
