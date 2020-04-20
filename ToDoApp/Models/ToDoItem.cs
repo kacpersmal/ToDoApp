@@ -12,7 +12,7 @@ namespace ToDoApp.Models
         [Required]
         public String value { get; set; }
         [Required]
-        public ToDoFlags flag { get; set; }
+        public bool finished { get; set; }
 
     }
 }

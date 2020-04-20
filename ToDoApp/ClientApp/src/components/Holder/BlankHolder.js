@@ -6,10 +6,15 @@ class BlankHolder extends Component {
         super(props);
         this.state = {};
     }
+
+    openDialog() {
+        console.log("new dialog");
+    }
+
     render() {
         return (
             <div className="Holder Blank">
-                <a href="" className="AddButton"><div class="cross"></div></a>
+                <a onClick={this.openDialog()} className="AddButton"><div class="cross"></div></a>
             </div>
         );
     }

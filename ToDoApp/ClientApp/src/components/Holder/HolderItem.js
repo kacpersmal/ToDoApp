@@ -1,10 +1,12 @@
 ﻿import React, { Component } from 'react';
-
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CheckIcon from '@material-ui/icons/Check';
+import ClearIcon from '@material-ui/icons/Clear';
+import IconButton from '@material-ui/core/IconButton';
 class HolderItem extends Component {
     constructor(props) {
         super(props);
         this.getItemStatus = this.getItemStatus.bind(this);
-        this.renderStatusButton = this.renderStatusButton.bind(this);
         this.state = { status: this.getItemStatus() };
 
     }
@@ -32,27 +34,27 @@ class HolderItem extends Component {
 
     }
 
-    renderStatusButton() {
-        console.log(this.state.status);
-        switch (this.state.status) {
-            case "Finished": return (<button onClick={this.changeStatus} className="Button Button-green"  >{this.state.status}</button>);
-                break;
-            case "Progress": return (<button onClick={this.changeStatus} className="Button Button-yellow"  >{this.state.status}</button>);
-                break;
-            case "ToDo": return (<button onClick={this.changeStatus} className="Button Button-gray Holder-Item-State-Item"  >{this.state.status}</button>);
-                break;
-        }
-    }
 
     render() {
         return (
-            <div class="Holder-Item">
-                <div className="Holder-Item-Body">
-                    <p className="Holder-Item-Value">{this.props.data.value}</p>
+            <div class="Holder-Item" >
+                <div className="Holder-Item-Body" style={this.props.data.finished ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid' } : {}}>
                     <div className="Holder-Item-State">
-                        {this.renderStatusButton()}
-                        <button onClick={this.delete} className="Button Button-strongRed Holder-Item-State-Item"  >Remove</button>
+                        {this.props.data.finished ?
+                            <IconButton onClick={this.handleClick}>
+                                <ClearIcon />
+                            </IconButton>
+                            :
+                            <IconButton onClick={this.handleClick}>
+                                <CheckIcon />
+                            </IconButton>
+                        }
+                        <IconButton onClick={this.handleClick}>
+                            <HighlightOffIcon />
+                        </IconButton>
                     </div>
+                    <h2 className="Holder-Item-Value" >{this.props.data.value}</h2>
+                   
                 </div>
             </div>
         );

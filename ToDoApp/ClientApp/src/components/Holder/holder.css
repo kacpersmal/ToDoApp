@@ -19,6 +19,7 @@
     margin-left: 30px;
     min-height: 80%;
     min-width: 20%;
+    max-width: 40%;
     background-color: #06d3f4;
 }
 
@@ -56,26 +57,34 @@
 
 /*******Holder Item**********/
 
+.Status-finished{
+    color: green;
+}
+
+.Status-unfinished {
+    color: yellow;
+}
+
 .Holder-Item {
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
+    border: 2px dashed #232424;
+    border-top:0;
+    word-break:break-word;
 }
 
 .Holder-Item-Body {
-   display:flex;
+   
 }
 
 .Holder-Item-Value {
-    flex:1;
+    
+    
 }
 
 .Holder-Item-State {
+    background-color: #232424;
     text-align:end;
-    flex: 1;
-    display:flex;
 }
 
-.Holder-Item-State-Item {
-    flex: 1;
-}
