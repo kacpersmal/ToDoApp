@@ -15,11 +15,11 @@ namespace ToDoApp.Data
             lists = new List<ToDoList>
             {
                 new ToDoList {Id =1, Label = "Testing", items = new List<ToDoItem>{
-                    new ToDoItem { Id = 1, flag = ToDoFlags.TODO, value = "Learn React"}, new ToDoItem { Id = 2, flag = ToDoFlags.TODO, value = "Learn .net"} 
+                    new ToDoItem { Id = 1, flag = ToDoFlags.PROGRESS, value = "Learn Reactdawdadawdawdawafwsegfwerg"}, new ToDoItem { Id = 2, flag = ToDoFlags.TODO, value = "Learn .net"} 
                 }
                 },
                 new ToDoList {Id =2, Label = "Testing", items = new List<ToDoItem>{
-                    new ToDoItem { Id = 1, flag = ToDoFlags.TODO, value = "Learn React"}, new ToDoItem { Id = 2, flag = ToDoFlags.TODO, value = "Learn .net"}
+                    new ToDoItem { Id = 1, flag = ToDoFlags.FINISHED, value = "Learn React"}, new ToDoItem { Id = 2, flag = ToDoFlags.TODO, value = "Learn .net"}
                 }
                 }
             };

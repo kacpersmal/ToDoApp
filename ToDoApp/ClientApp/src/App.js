@@ -14,11 +14,11 @@ export default class App extends Component {
 
     fetchListst() {
         axios.get('ToDo/ListAll').then((response) => {
-            
             this.setState({ ToDoData: response.data, isLoading: false });
         })
         
     }
+
 
     componentDidMount() {
         this.fetchListst();

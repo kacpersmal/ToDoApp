@@ -9,7 +9,7 @@ class BlankHolder extends Component {
     render() {
         return (
             <div className="Holder Blank">
-                <a href="" className="AddButton"></a>
+                <a href="" className="AddButton"><div class="cross"></div></a>
             </div>
         );
     }

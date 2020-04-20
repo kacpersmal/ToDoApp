@@ -1,4 +1,6 @@
 ﻿import React, { Component } from 'react';
+import HolderItem from "./HolderItem";
+
 import './holder.css'
 class Holder extends Component {
     constructor(props) {
@@ -8,11 +10,11 @@ class Holder extends Component {
     render() {
         return (
             <div className="Holder">
-                <div>
-                    <h1>This is header</h1>
+                <div class="Holder-Label">
+                    <h1>{this.props.data.label}</h1>
                 </div>
-                <div>
-                    <p>This is body</p>
+                <div class="Holder-Body">
+                    {this.props.data.items.map((item) => <HolderItem data={item}/>)}
                 </div>
             </div>
         );

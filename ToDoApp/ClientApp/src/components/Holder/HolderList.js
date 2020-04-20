@@ -11,10 +11,12 @@ class HolderList extends Component {
     }
 
     renderLists() {
-        const lists = this.props.data.map(item => <Holder data={item} />); 
+        const lists =this.props.data.map((item, index) => <Holder data={item} key={index} />);
         return (
-            {lists}
-            ); 
+            <React.Fragment>
+                {lists}
+            </React.Fragment>
+        ); 
     }
 
     render() {
@@ -28,5 +30,9 @@ class HolderList extends Component {
         );
     }
 }
+
+HolderList.defaultProps = {
+    data: []
+};
 
 export default HolderList;
