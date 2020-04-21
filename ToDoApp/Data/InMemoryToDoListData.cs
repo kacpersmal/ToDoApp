@@ -14,22 +14,18 @@ namespace ToDoApp.Data
         {
             lists = new List<ToDoList>
             {
-                new ToDoList {Id =1, Label = "Testing", items = new List<ToDoItem>{
-                    new ToDoItem { Id = 1, finished=false, value = "Learn ReactwergRea ctdawdadawdaw dawafwsegfwerg Reactdawdadaw dawdawafwsegfwerg"}, new ToDoItem { Id = 2, finished=true, value = "Learn .net"} 
-                }
-                },
-                new ToDoList {Id =2, Label = "Testing", items = new List<ToDoItem>{
-                    new ToDoItem { Id = 1, finished=true, value = "Learn React"}, new ToDoItem { Id = 2, finished=false, value = "Learn .net"}
+                new ToDoList {Id =1, Label = "Day", items = new List<ToDoItem>{
+                    new ToDoItem { Id = 1, finished=false, value = "Take out trash"}, new ToDoItem { Id = 2, finished=true, value = "Listen to podcasts"} 
                 }
                 }
             };
         }
 
-        public ToDoItem AddItem(int listId, string item)
+        public ToDoItem AddItem(int listId, string itemValue)
         {
             var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
             int itemId = toDoList.items.Last().Id + 1;
-            ToDoItem itemTmp = new ToDoItem { Id = itemId, finished = false, value = item};
+            ToDoItem itemTmp = new ToDoItem { Id = itemId, finished = false, value = itemValue};
             toDoList.items.Add(itemTmp);
             return itemTmp;
         } 
@@ -74,10 +70,10 @@ namespace ToDoApp.Data
             return list;
         }
 
-        public ToDoItem SetStatus(int listId, int item, bool status)
+        public ToDoItem SetStatus(int listId, int itemId, bool status)
         {
             var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
-            ToDoItem itemTmp = toDoList.items.FirstOrDefault(it => it.Id == item);
+            ToDoItem itemTmp = toDoList.items.FirstOrDefault(it => it.Id == itemId);
             itemTmp.finished = status;
             return itemTmp;
         }

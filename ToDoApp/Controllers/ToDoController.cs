@@ -34,7 +34,7 @@ namespace ToDoApp
         }
 
         [HttpPost("DeleteList/{id}")]
-        public ToDoList NewList(int id)
+        public ToDoList DeleteList(int id)
         {
             return toDoList.RemoveList(id);
         }
@@ -45,16 +45,16 @@ namespace ToDoApp
             return toDoList.AddItem(id,value);
         }
 
-        [HttpPost("SetStatus/{id}/{item}/{status}")]
-        public ToDoItem SetStatus(int id, int item,bool status)
+        [HttpPost("SetStatus/{id}/{itemId}/{status}")]
+        public ToDoItem SetStatus(int id, int itemId,bool status)
         {
-            return toDoList.SetStatus(id, item,status);
+            return toDoList.SetStatus(id, itemId,status);
         }
 
-        [HttpPost("DeleteItem/{id}/{item}")]
-        public ToDoItem DeleteItem(int id, int item)
+        [HttpPost("DeleteItem/{id}/{itemId}")]
+        public ToDoItem DeleteItem(int id, int itemId)
         {
-            return toDoList.DeleteItem(id, item);
+            return toDoList.DeleteItem(id, itemId);
         }
 
     }

@@ -13,8 +13,8 @@ namespace ToDoApp.Data
         List<ToDoList> GetAllLists();
         ToDoList AddList(string name);
         ToDoList RemoveList(int id);
-        ToDoItem AddItem(int listId, string item);
-        ToDoItem SetStatus(int listId, int item,bool status);
+        ToDoItem AddItem(int listId, string itemValue);
+        ToDoItem SetStatus(int listId, int itemId,bool status);
         ToDoItem DeleteItem(int listId, int itemId);
 
 
