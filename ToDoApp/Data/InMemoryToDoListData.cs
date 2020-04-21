@@ -24,7 +24,11 @@ namespace ToDoApp.Data
         public ToDoItem AddItem(int listId, string itemValue)
         {
             var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
-            int itemId = toDoList.items.Last().Id + 1;
+            int itemId = 0;
+            if (toDoList.items.Count > 0)
+            {
+                itemId = toDoList.items.Last().Id + 1;
+            }
             ToDoItem itemTmp = new ToDoItem { Id = itemId, finished = false, value = itemValue};
             toDoList.items.Add(itemTmp);
             return itemTmp;
