@@ -11,9 +11,13 @@ namespace ToDoApp.Data
         int commit();
         ToDoList GetListById(int id);
         List<ToDoList> GetAllLists();
-        ToDoList AddList(ToDoList list);
+        ToDoList AddList(string name);
         ToDoList RemoveList(int id);
         ToDoList UpdateList(ToDoList list);
+
+        ToDoItem AddItem(int listId, string item);
+        ToDoItem SetStatus(int listId, int item,bool status);
+
 
     }
 }

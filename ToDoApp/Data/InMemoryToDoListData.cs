@@ -25,9 +25,19 @@ namespace ToDoApp.Data
             };
         }
 
-        public ToDoList AddList(ToDoList list)
+        public ToDoItem AddItem(int listId, string item)
         {
+            var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
+            ToDoItem itemTmp = new ToDoItem { Id = toDoList.items.Count + 1, finished = false, value = item};
+            toDoList.items.Add(itemTmp);
+            return itemTmp;
+        } 
+
+        public ToDoList AddList(string name)
+        {
+            ToDoList list = new ToDoList { Label = name };
             list.Id = lists.Count + 1;
+            list.items = new List<ToDoItem>();
             lists.Add(list);
             return list;
         }
@@ -53,6 +63,14 @@ namespace ToDoApp.Data
             var list = lists.SingleOrDefault(td => td.Id == id);
             lists.Remove(list);
             return list;
+        }
+
+        public ToDoItem SetStatus(int listId, int item, bool status)
+        {
+            var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
+            ToDoItem itemTmp = toDoList.items.FirstOrDefault(it => it.Id == item);
+            itemTmp.finished = status;
+            return itemTmp;
         }
 
         public ToDoList UpdateList(ToDoList list)
