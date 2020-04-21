@@ -3,11 +3,14 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
 import IconButton from '@material-ui/core/IconButton';
+import axios from 'axios';
 class HolderItem extends Component {
     constructor(props) {
         super(props);
         this.getItemStatus = this.getItemStatus.bind(this);
         this.state = { status: this.getItemStatus() };
+        this.changeStatus = this.changeStatus.bind(this);
+        this.delete = this.delete.bind(this);
 
     }
 
@@ -27,6 +30,11 @@ class HolderItem extends Component {
     }
 
     changeStatus() {
+        let statusBool = !this.props.data.finished;
+        console.log('ToDo/SetStatus/' + this.props.holderId + '/' + this.props.data.id + '/' + statusBool);
+        axios.post('ToDo/SetStatus/' + this.props.holderId + '/' + this.props.data.id + '/' + statusBool).then(res => {
+            this.setState({ statusBool: statusBool });
+        })
 
     }
 
@@ -38,18 +46,18 @@ class HolderItem extends Component {
     render() {
         return (
             <div class="Holder-Item" >
-                <div className="Holder-Item-Body" style={this.props.data.finished ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid' } : {}}>
+                <div className="Holder-Item-Body" style={this.state.statusBool ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid' } : {}}>
                     <div className="Holder-Item-State">
-                        {this.props.data.finished ?
-                            <IconButton onClick={this.handleClick}>
+                        {this.state.statusBool ?
+                            <IconButton onClick={this.changeStatus}>
                                 <ClearIcon />
                             </IconButton>
                             :
-                            <IconButton onClick={this.handleClick}>
+                            <IconButton onClick={this.changeStatus}>
                                 <CheckIcon />
                             </IconButton>
                         }
-                        <IconButton onClick={this.handleClick}>
+                        <IconButton onClick={this.delete}>
                             <HighlightOffIcon />
                         </IconButton>
                     </div>

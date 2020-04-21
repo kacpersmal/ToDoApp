@@ -36,6 +36,15 @@
     background-color: #232424;
     border: 1px solid #06d3f4;
 }
+
+.Holder-Body {
+    overflow-y:auto;
+}
+
+.Holder-Footer{
+    position:relative;
+    bottom:0;
+}
  
 /*******Blank Holder********/
 

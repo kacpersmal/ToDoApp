@@ -14,6 +14,7 @@ export default class App extends Component {
 
     fetchListst() {
         axios.get('ToDo/ListAll').then((response) => {
+            console.log(this.state.ToDoData);
             this.setState({ ToDoData: response.data, isLoading: false });
         })
         

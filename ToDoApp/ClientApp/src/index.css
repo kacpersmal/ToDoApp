@@ -35,5 +35,21 @@
 /***Button***/
 
 .Button {
+    border: 1px solid #06d3f4;
+    font-size: 24px;
+    background-color: #232424;
+    color: #06d3f4;
+}
 
+.Input {
+    border: 1px solid #06d3f4;
+    font-size: 24px;
+    background-color: #232424;
+    color: #06d3f4;
+}
+
+
+/**Utill***/
+.text-center {
+    text-align: center;
 }
