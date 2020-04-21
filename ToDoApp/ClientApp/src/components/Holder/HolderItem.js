@@ -8,7 +8,7 @@ class HolderItem extends Component {
     constructor(props) {
         super(props);
         this.getItemStatus = this.getItemStatus.bind(this);
-        this.state = { status: this.getItemStatus() };
+        this.state = { status: this.getItemStatus(), statusBool: this.props.data.finished };
         this.changeStatus = this.changeStatus.bind(this);
         this.delete = this.delete.bind(this);
 
