@@ -1,6 +1,8 @@
 ﻿import React, { Component } from 'react';
 import HolderItem from "./HolderItem";
 import axios from 'axios';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
 
 import './holder.css'
 class Holder extends Component {
@@ -9,6 +11,7 @@ class Holder extends Component {
         this.state = { inputText: '' };
         this.handleChange = this.handleChange.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     handleChange = event => {
@@ -22,11 +25,21 @@ class Holder extends Component {
         })
     }
 
+    delete() {
+        axios.post('ToDo/DeleteList/' + this.props.data.id).then(res => {
+            
+            window.location.reload(false);
+        })
+    }
+
     render() {
         return (
             <div className="Holder">
                 <div className="Holder-Label">
                     <h1>{this.props.data.label}</h1>
+                    <IconButton onClick={this.delete}>
+                        <HighlightOffIcon />
+                    </IconButton>
                 </div>
                 <div className="Holder-Body">
                     {this.props.data.items.map((item) => <HolderItem holderId={this.props.data.id} data={item} />)}

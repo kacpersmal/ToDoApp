@@ -33,6 +33,12 @@ namespace ToDoApp
             return toDoList.AddList(name);
         }
 
+        [HttpPost("DeleteList/{id}")]
+        public ToDoList NewList(int id)
+        {
+            return toDoList.RemoveList(id);
+        }
+
         [HttpPost("AddItem/{id}/{value}")]
         public ToDoItem NewList(int id, string value)
         {
@@ -43,6 +49,12 @@ namespace ToDoApp
         public ToDoItem SetStatus(int id, int item,bool status)
         {
             return toDoList.SetStatus(id, item,status);
+        }
+
+        [HttpPost("DeleteItem/{id}/{item}")]
+        public ToDoItem DeleteItem(int id, int item)
+        {
+            return toDoList.DeleteItem(id, item);
         }
 
     }

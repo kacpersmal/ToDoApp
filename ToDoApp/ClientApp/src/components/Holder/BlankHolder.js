@@ -5,7 +5,7 @@ class BlankHolder extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { dialogOpen: true, inputText: '' };
+        this.state = { dialogOpen: false, inputText: '' };
         this.showDialog = this.showDialog.bind(this);
         this.createNewList = this.createNewList.bind(this);
         this.handleChange = this.handleChange.bind(this);

@@ -15,7 +15,7 @@ namespace ToDoApp.Data
             lists = new List<ToDoList>
             {
                 new ToDoList {Id =1, Label = "Testing", items = new List<ToDoItem>{
-                    new ToDoItem { Id = 1, finished=false, value = "Learn ReactdawdadawdawdawafwsegfwergReactdawdadawdawdawafwsegfwergReactdawdadawdawdawafwsegfwerg ReactdawdadawdawdawafwsegfwergReactdawdadawdawdawafwsegfwergReactdawdadawdawdawafwsegfwerg Reactdawdadawdawdawafwsegfwerg"}, new ToDoItem { Id = 2, finished=true, value = "Learn .net"} 
+                    new ToDoItem { Id = 1, finished=false, value = "Learn ReactwergRea ctdawdadawdaw dawafwsegfwerg Reactdawdadaw dawdawafwsegfwerg"}, new ToDoItem { Id = 2, finished=true, value = "Learn .net"} 
                 }
                 },
                 new ToDoList {Id =2, Label = "Testing", items = new List<ToDoItem>{
@@ -28,7 +28,8 @@ namespace ToDoApp.Data
         public ToDoItem AddItem(int listId, string item)
         {
             var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
-            ToDoItem itemTmp = new ToDoItem { Id = toDoList.items.Count + 1, finished = false, value = item};
+            int itemId = toDoList.items.Last().Id + 1;
+            ToDoItem itemTmp = new ToDoItem { Id = itemId, finished = false, value = item};
             toDoList.items.Add(itemTmp);
             return itemTmp;
         } 
@@ -36,7 +37,7 @@ namespace ToDoApp.Data
         public ToDoList AddList(string name)
         {
             ToDoList list = new ToDoList { Label = name };
-            list.Id = lists.Count + 1;
+            list.Id = lists.Last().Id + 1;
             list.items = new List<ToDoItem>();
             lists.Add(list);
             return list;
@@ -45,6 +46,14 @@ namespace ToDoApp.Data
         public int commit()
         {
             return 0;
+        }
+
+        public ToDoItem DeleteItem(int listId, int itemId)
+        {
+            var toDoList = lists.FirstOrDefault(lst => lst.Id == listId);
+            ToDoItem itemTmp = toDoList.items.FirstOrDefault(it => it.Id == itemId);
+            toDoList.items.Remove(itemTmp);
+            return itemTmp;
         }
 
         public List<ToDoList> GetAllLists()

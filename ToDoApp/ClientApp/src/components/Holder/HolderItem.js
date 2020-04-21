@@ -31,7 +31,6 @@ class HolderItem extends Component {
 
     changeStatus() {
         let statusBool = !this.props.data.finished;
-        console.log('ToDo/SetStatus/' + this.props.holderId + '/' + this.props.data.id + '/' + statusBool);
         axios.post('ToDo/SetStatus/' + this.props.holderId + '/' + this.props.data.id + '/' + statusBool).then(res => {
             this.setState({ statusBool: statusBool });
         })
@@ -39,7 +38,9 @@ class HolderItem extends Component {
     }
 
     delete() {
-
+        axios.post('ToDo/DeleteItem/' + this.props.holderId + '/' + this.props.data.id).then(res => {
+            window.location.reload(false);
+        })
     }
 
 

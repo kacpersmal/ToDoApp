@@ -13,10 +13,9 @@ namespace ToDoApp.Data
         List<ToDoList> GetAllLists();
         ToDoList AddList(string name);
         ToDoList RemoveList(int id);
-        ToDoList UpdateList(ToDoList list);
-
         ToDoItem AddItem(int listId, string item);
         ToDoItem SetStatus(int listId, int item,bool status);
+        ToDoItem DeleteItem(int listId, int itemId);
 
 
     }
